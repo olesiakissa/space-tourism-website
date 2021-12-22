@@ -56,6 +56,7 @@ body {
   min-height: 100vh;
   display: grid;
   grid-template-rows: min-content 1fr;
+  overflow-x: hidden;
 }
 
 h1, h2, h3,
@@ -100,6 +101,10 @@ select {
   gap: var(--gap, 1rem);
 }
 
+.d-block {
+  display: block;
+}
+
 /* Select everything that has a sibling before it */
 /* Same as .flow > *:not(:first-child) but doesn't lead to
    the potential specificity problems during overriding */
@@ -114,12 +119,19 @@ select {
 }
 
 .grid-container {
-  border: 5px solid palevioletred;
+  text-align: center;
   display: grid;
+  place-items: center;
+  padding-inline: 1rem;
 }
 
-@media (min-width: 45rem) {
+.grid-container * {
+  max-width: 50ch;
+}
+
+@media (min-width: 45em) {
   .grid-container {
+    text-align: left;
     column-gap: var(--container-gap, 2rem);
     grid-template-columns: minmax(2rem, 1fr) repeat(2, minmax(0, 80rem)) minmax(2rem, 1fr);
   }
@@ -130,7 +142,11 @@ select {
  
   .grid-container > *:last-child {
    grid-column: 3;
-   outline: 1px solid greenyellow;
+ }
+
+ .grid-container-home {
+   padding-block-end: max(6rem, 20vh);
+   align-items: end;
  }
 }
 
@@ -197,6 +213,7 @@ select {
 
 /* Components */
 .large-button {
+  font-size: 2rem;
   position: relative;
   display: inline-grid;
   /* Creating new stacking context so the button outline (::after)
@@ -229,13 +246,23 @@ select {
      e.g. width: 150%; height: 150%;*/
   transform: scale(1.5);
 }
+/* Primary header */
+
+.logo {
+  margin: 1.5rem clamp(1.5rem, 5vw, 3.5rem);
+}
+
+.primary-header {
+  justify-content: space-between;
+  align-items: center;
+}
 
 .primary-navigation {
-  --gap: 8rem;
-  --underline-gap: 2.188rem;
+  --underline-gap: 2rem;
   list-style: none;
   padding: 0;
   margin: 0;
+  background: hsl(var(--clr-dark) / 0.95);
 }
 
 .primary-navigation a {
@@ -245,6 +272,98 @@ select {
 .primary-navigation a > span {
   font-weight: 700;
   margin-inline-end: .5em;
+}
+
+@supports(backdrop-filter: blur(1rem)) {
+  .primary-navigation {
+    background: hsl(var(--clr-light) / 0.05);
+    backdrop-filter: blur(1.5rem);
+  }
+}
+
+.mobile-nav-toggle {
+  display: none;
+}
+
+@media (max-width: 35em) {
+  .primary-navigation {
+    --gap: clamp(1.5rem, 5vw, 3.5rem);
+    --underline-gap: 1rem;
+    position: fixed;
+    z-index: 1000;
+    inset: 0 0 0 20%;
+    list-style: none;
+    padding: min(20rem, 10vh) 2rem;
+    margin: 0;
+    flex-direction: column;
+    transition: transform 500ms ease-in-out;
+    transform: translateX(100%);
+  }
+
+  .primary-navigation[data-visible="true"] {
+    transform: translateX(0);
+  }
+
+  .primary-navigation.underline-indicators > .active {
+    border: 0;
+  }
+
+  .mobile-nav-toggle {
+    display: block;
+    position: absolute;
+    z-index: 2000;
+    right: 1rem;
+    top: 2rem;
+    background: transparent;
+    background-image: url(./assets/shared/icon-hamburger.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 1.5rem;
+    aspect-ratio: 1;
+    border: 0;
+  }
+
+  .mobile-nav-toggle[aria-expanded="true"] {
+    background-image: url(./assets/shared/icon-close.svg);
+  }
+  
+  .mobile-nav-toggle:focus-visible {
+    outline: 5px solid white;
+    outline-offset: 5px;
+  }
+}
+
+@media (min-width: 35em) {
+  .primary-navigation {
+    padding-inline: clamp(3rem, 7vw, 7rem);
+  }
+}
+
+@media (min-width: 35em) and (max-width: 44.999em) {
+  .primary-navigation a > span {
+    display: none;
+  }
+}
+
+@media (min-width: 45em) {
+  .primary-header::after {
+    content: '';
+    display: block;
+    position: relative;
+    margin-inline-end: -2.5rem;
+    height: 1px;
+    width: 100%;
+    background-color: hsl(var(--clr-light) / .25);
+    order: 1;
+  }
+
+  nav {
+    order: 2;
+  }
+
+  .primary-navigation {
+    margin-block: 2rem;
+  }
 }
 
 .underline-indicators > * {
@@ -306,4 +425,33 @@ select {
   border: 0;
   background-color: hsla(var(--clr-white) / 1);
   color:hsl(var(--clr-dark))
+}
+
+
+/* ------------------------- */
+/* Page specific backgrounds */
+/* ------------------------- */
+
+body {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: bottom center;
+}
+
+/* Home */
+.home {
+  background-image: url(./assets/home/background-home-mobile.jpg);
+}
+
+@media (min-width: 35em) {
+  .home {
+    background-position: center center;
+    background-image: url(./assets/home/background-home-tablet.jpg); 
+  }
+}
+
+@media (min-width: 45em) {
+  .home {
+    background-image: url(./assets/home/background-home-desktop.jpg); 
+  }
 }
