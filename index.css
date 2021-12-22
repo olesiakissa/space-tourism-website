@@ -125,7 +125,7 @@ select {
   padding-inline: 1rem;
 }
 
-.grid-container * {
+.grid-container *:not(img) {
   max-width: 50ch;
 }
 
@@ -218,6 +218,8 @@ select {
 .numbered-title {
   font-family: var(--ff-sans-cond);
   font-size: var(--fs-500);
+  text-transform: uppercase;
+  letter-spacing: 4.72px;
 }
 
 .numbered-title span { 
@@ -273,6 +275,7 @@ select {
 }
 
 .primary-navigation {
+  --gap: clamp(1.5rem, 5vw, 3.5rem);
   --underline-gap: 2rem;
   list-style: none;
   padding: 0;
@@ -302,7 +305,6 @@ select {
 
 @media (max-width: 35em) {
   .primary-navigation {
-    --gap: clamp(1.5rem, 5vw, 3.5rem);
     --underline-gap: 1rem;
     position: fixed;
     z-index: 1000;
