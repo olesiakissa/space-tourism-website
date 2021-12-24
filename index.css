@@ -9,8 +9,8 @@
   --fs-800: 6.25rem;
   --fs-700: 3.5rem;
   --fs-600: 2rem;
-  --fs-500: 1.75rem;
-  --fs-400: 1.125rem;
+  --fs-500: 1rem;
+  --fs-400: 0.9375rem;
   --fs-300: 1rem;
   --fs-200: 0.875rem;
 
@@ -25,6 +25,7 @@
       --fs-800: 5rem;
       --fs-700: 2.5rem;
       --fs-600: 1.5rem;
+      --fs-500: 1.25rem;
       --fs-400: 1rem;
   }
 }
@@ -34,6 +35,7 @@
       --fs-800: 6.25rem;
       --fs-700: 3.5rem;
       --fs-600: 2rem;
+      --fs-500: 1.75rem;
       --fs-400: 1.125rem;
   }
 }
@@ -118,38 +120,6 @@ select {
   max-width: 80rem;
 }
 
-.grid-container {
-  text-align: center;
-  display: grid;
-  place-items: center;
-  padding-inline: 1rem;
-}
-
-.grid-container *:not(img) {
-  max-width: 50ch;
-}
-
-@media (min-width: 45em) {
-  .grid-container {
-    text-align: left;
-    column-gap: var(--container-gap, 2rem);
-    grid-template-columns: minmax(2rem, 1fr) repeat(2, minmax(0, 80rem)) minmax(2rem, 1fr);
-  }
-
-  .grid-container > *:first-child {
-    grid-column: 2;
-  }
- 
-  .grid-container > *:last-child {
-   grid-column: 3;
- }
-
- .grid-container-home {
-   padding-block-end: max(6rem, 20vh);
-   align-items: end;
- }
-}
-
  /* Content for assistive technologies only */
 .sr-only {
   position: absolute;
@@ -170,7 +140,7 @@ select {
   color: hsl(var(--clr-dark));
   padding: .5em 1em;
   margin-inline: auto;
-  transform: translateY(-100%);
+  transform: translateY(-110%);
   transition: transform 250ms ease-in;
 }
 
@@ -406,6 +376,10 @@ select {
   --gap: 2rem;
 }
 
+.tab-list button {
+  background: transparent;
+}
+
 .dot-indicators > * {
   cursor: pointer;
   border: 0;
@@ -444,7 +418,6 @@ select {
   color:hsl(var(--clr-dark))
 }
 
-
 /* ------------------------- */
 /* Page specific backgrounds */
 /* ------------------------- */
@@ -471,4 +444,132 @@ body {
   .home {
     background-image: url(./assets/home/background-home-desktop.jpg); 
   }
+}
+
+.destination {
+  background-image: url(./assets/destination/background-destination-mobile.jpg);
+}
+
+@media (min-width: 35em) {
+  .destination {
+    background-position: center center;
+    background-image: url(./assets/destination/background-destination-tablet.jpg); 
+  }
+}
+
+@media (min-width: 45em) {
+  .destination {
+    background-image: url(./assets/destination/background-destination-desktop.jpg); 
+  }
+}
+
+/* ----------------------------- */
+/* Layout                        */
+/* ----------------------------- */
+
+.grid-container {
+  text-align: center;
+  display: grid;
+  place-items: center;
+  padding-inline: 1rem;
+  padding-block-end: 3.625rem;
+}
+
+.grid-container p.main-text-content {
+  max-width: 50ch;
+  color: hsl(var(--clr-light));
+}
+
+.numbered-title {
+  grid-area: title;
+}
+
+/* Destination layout */
+
+.grid-container-destination {
+  --flow-space: 2rem;
+  grid-template-areas: 
+  'title'
+  'image'
+  'tabs'
+  'content';
+}
+
+.grid-container-destination > img {
+  grid-area: image;
+  max-width: 60%;
+}
+
+.grid-container-destination > .tab-list {
+  grid-area: tabs;
+}
+
+.grid-container-destination > .destination-info {
+  grid-area: content;
+}
+
+.destination-meta {
+  flex-direction: column;
+  align-items: center;
+  border-top: 1px solid hsl(231 15% 26%);
+  padding-block-start: 2rem;
+  margin-block-start: 2rem;
+}
+
+.destination-meta p {
+  font-size: 1.75rem;
+}
+
+@media (min-width: 35em) {
+  .numbered-title {
+    justify-self: start;
+    margin-block-start: 2rem;
+  }
+
+  .destination-meta {
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+}
+
+@media (min-width: 45em) {
+  .grid-container {
+    text-align: left;
+    column-gap: var(--container-gap, 2rem);
+    grid-template-columns: minmax(2rem, 1fr) repeat(2, minmax(0, 80rem)) minmax(2rem, 1fr);
+  }
+
+  .grid-container-home {
+    padding-block-end: max(6rem, 20vh);
+    align-items: end;
+  }
+
+  .grid-container-home > *:first-child {
+    grid-column: 2;
+  }
+ 
+  .grid-container-home > *:last-child {
+   grid-column: 3;
+ }
+
+  .grid-container-destination {
+    --flow-space: 4rem;
+    justify-items: start;
+    align-content: start;
+    grid-template-areas: 
+    '. title title .'
+    '. image tabs .'
+    '. image content .';
+  }
+  
+  .grid-container-destination > img {
+    max-width: 100%;
+    justify-self: center;
+  }
+
+  .destination-meta {
+    --gap: min(6vw, 6rem);
+    justify-content: start;
+  }
+
 }
