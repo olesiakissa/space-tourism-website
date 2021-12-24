@@ -114,6 +114,10 @@ select {
   margin-block-start: var(--flow-space, 1rem);
 }
 
+.flow-space-small {
+  --flow-space: .9rem;
+}
+
 .container {
   padding-inline: 2em; 
   margin-inline: auto;
@@ -354,7 +358,7 @@ select {
 }
 
 .underline-indicators > * {
-  padding-block: var(--underline-gap, 0.9rem);
+  padding-block: var(--underline-gap, 0.75rem);
   border: 0;
   cursor: pointer;
   border-bottom: .2rem solid hsl(var(--clr-white) / 0);
@@ -377,7 +381,7 @@ select {
 }
 
 .tab-list button {
-  background: transparent;
+  background-color: transparent;
 }
 
 .dot-indicators > * {
@@ -463,6 +467,23 @@ body {
   }
 }
 
+.crew {
+  background-image: url(./assets/crew/background-crew-mobile.jpg);
+}
+
+@media (min-width: 35em) {
+  .crew {
+    background-position: center center;
+    background-image: url(./assets/crew/background-crew-tablet.jpg); 
+  }
+}
+
+@media (min-width: 45em) {
+  .crew {
+    background-image: url(./assets/crew/background-crew-desktop.jpg); 
+  }
+}
+
 /* ----------------------------- */
 /* Layout                        */
 /* ----------------------------- */
@@ -495,7 +516,7 @@ body {
   'content';
 }
 
-.grid-container-destination > img {
+.grid-container-destination > picture {
   grid-area: image;
   max-width: 60%;
 }
@@ -520,6 +541,34 @@ body {
   font-size: 1.75rem;
 }
 
+/* Crew layout */
+.grid-container-crew {
+  --flow-space: 2rem;
+  grid-template-areas: 
+  'title'
+  'image'
+  'tabs'
+  'content';
+}
+
+.grid-container-crew > picture {
+  grid-area: image;
+  max-width: 60%;
+  border-bottom: 1px solid hsl(231 15% 26%);
+}
+
+.grid-container-crew > .dot-indicators {
+  grid-area: tabs;
+}
+
+.grid-container-crew > .crew-details {
+  grid-area: content;
+}
+
+.crew-details h2 {
+  color: hsl(var(--clr-white) / .5);
+}
+
 @media (min-width: 35em) {
   .numbered-title {
     justify-self: start;
@@ -529,6 +578,19 @@ body {
   .destination-meta {
     flex-direction: row;
     justify-content: space-evenly;
+  }
+
+  .grid-container-crew {
+    grid-template-areas: 
+    'title'
+    'content'
+    'tabs'
+    'image';
+    padding-block-end: 0;
+  }
+
+  .grid-container-crew > picture {
+    border-bottom: none;
   }
 }
 
@@ -562,7 +624,8 @@ body {
     '. image content .';
   }
   
-  .grid-container-destination > img {
+  .grid-container-destination > picture,
+  .grid-container-crew > picture {
     max-width: 100%;
     justify-self: center;
   }
@@ -572,4 +635,15 @@ body {
     justify-content: start;
   }
 
+  .grid-container-crew {
+    grid-template-areas: 
+    '. title title .'
+    '. content image .'
+    '. tabs image .';
+    place-items: center start;
+  }
+
+  .grid-container-crew > picture {
+    align-self: end;
+  }
 }
