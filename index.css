@@ -80,6 +80,10 @@ select {
   font: inherit;
 }
 
+[hidden] { 
+  display: none !important; 
+}
+
 /* Remove animations for people who've turned them off */
 @media (prefers-reduced-motion: reduce) {  
   *,
@@ -254,7 +258,7 @@ select {
   list-style: none;
   padding: 0;
   margin: 0;
-  background: hsl(var(--clr-dark) / 0.95);
+  background: hsl(var(--clr-light) / 0.05);
 }
 
 .primary-navigation a {
