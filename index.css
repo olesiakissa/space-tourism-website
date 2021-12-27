@@ -208,14 +208,14 @@ select {
 
 /* Components */
 .large-button {
-  font-size: 2rem;
+  font-size: 1.25rem;
   position: relative;
   display: inline-grid;
   /* Creating new stacking context so the button outline (::after)
      won't be lost among other el-s with negative z-index */
   z-index: 1;
   place-items: center;
-  padding-inline: 2em;
+  padding-inline: 1.5em;
   aspect-ratio: 1;
   border-radius: 50%;
   text-decoration: none;
@@ -325,6 +325,10 @@ select {
   .mobile-nav-toggle:focus-visible {
     outline: 5px solid white;
     outline-offset: 5px;
+  }
+
+  .grid-container-home span#space {
+    margin-block: 1rem;
   }
 }
 
@@ -496,13 +500,14 @@ body {
   text-align: center;
   display: grid;
   place-items: center;
-  padding-inline: 1rem;
+  padding-inline: 1.5rem;
   padding-block-end: 3.625rem;
 }
 
 .grid-container p.main-text-content {
   max-width: 50ch;
   color: hsl(var(--clr-light));
+  line-height: 1.7;
 }
 
 .numbered-title {
@@ -523,6 +528,7 @@ body {
 .grid-container-destination > picture {
   grid-area: image;
   max-width: 60%;
+  align-self: start;
 }
 
 .grid-container-destination > .tab-list {
@@ -575,8 +581,9 @@ body {
 
 @media (min-width: 35em) {
   .numbered-title {
-    justify-self: start;
+    place-self: start;
     margin-block-start: 2rem;
+    margin-inline-start: 1rem;
   }
 
   .destination-meta {
@@ -627,10 +634,12 @@ body {
     '. image tabs .'
     '. image content .';
   }
+
+  .numbered-title {
+    margin-inline-start: 0;
+  }
   
-  .grid-container-destination > picture,
-  .grid-container-crew > picture {
-    max-width: 100%;
+  .grid-container-destination > picture {
     justify-self: center;
   }
 
@@ -640,14 +649,17 @@ body {
   }
 
   .grid-container-crew {
+    grid-template-columns: minmax(6.25rem, 1fr) minmax(0, 70rem) minmax(0, 35rem) minmax(6.25rem, 1fr);
     grid-template-areas: 
     '. title title .'
     '. content image .'
     '. tabs image .';
-    place-items: center start;
+    justify-items: start;
   }
 
   .grid-container-crew > picture {
+    grid-column: span 2;
     align-self: end;
+    max-width: 100%;
   }
 }
