@@ -208,14 +208,14 @@ select {
 
 /* Components */
 .large-button {
-  font-size: 1.25rem;
+  font-size: 2rem;
   position: relative;
   display: inline-grid;
   /* Creating new stacking context so the button outline (::after)
      won't be lost among other el-s with negative z-index */
   z-index: 1;
   place-items: center;
-  padding-inline: 1.5em;
+  padding-inline: 2em;
   aspect-ratio: 1;
   border-radius: 50%;
   text-decoration: none;
@@ -329,6 +329,11 @@ select {
 
   .grid-container-home span#space {
     margin-block: 1rem;
+  }
+
+  .large-button {
+    font-size: 1.25rem;
+    padding-inline: 1.75em;
   }
 }
 
