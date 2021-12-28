@@ -23,7 +23,7 @@
 @media (min-width: 35em) {
   :root {
       --fs-800: 5rem;
-      --fs-700: 2.5rem;
+      --fs-700: 5rem;
       --fs-600: 1.5rem;
       --fs-500: 1.25rem;
       --fs-400: 1rem;
@@ -327,10 +327,6 @@ select {
     outline-offset: 5px;
   }
 
-  .grid-container-home span#space {
-    margin-block: 1rem;
-  }
-
   .large-button {
     font-size: 1.25rem;
     padding-inline: 1.75em;
@@ -346,6 +342,14 @@ select {
 @media (min-width: 35em) and (max-width: 44.999em) {
   .primary-navigation a > span {
     display: none;
+  }
+
+  .grid-container-home span#space {
+    font-size: min(20vw, 9.375rem);
+  }
+
+  .large-button {
+    padding-inline: 1.5em;
   }
 }
 
@@ -390,7 +394,7 @@ select {
 }
 
 .tab-list {
-  --gap: 2rem;
+  --gap: 1.5rem;
 }
 
 .tab-list button {
@@ -519,6 +523,12 @@ body {
   grid-area: title;
 }
 
+@media (max-width: 45em) {
+  .grid-container-home span#space {
+    margin-block: 1rem;
+  }
+}
+
 /* Destination layout */
 
 .grid-container-destination {
@@ -532,12 +542,17 @@ body {
 
 .grid-container-destination > picture {
   grid-area: image;
-  max-width: 60%;
+  max-width: 50%;
   align-self: start;
 }
 
 .grid-container-destination > .tab-list {
   grid-area: tabs;
+}
+
+.grid-container-destination .main-text-content,
+.grid-container-crew .main-text-content {
+  --flow-space: .9rem;
 }
 
 .grid-container-destination > .destination-info {
@@ -625,7 +640,15 @@ body {
   .grid-container-home > *:first-child {
     grid-column: 2;
   }
+
+  .grid-container-home span#space {
+    margin-block: 1.5rem;
+  }
  
+  .grid-container p.main-text-content {
+    line-height: 1.8;
+  }
+
   .grid-container-home > *:last-child {
    grid-column: 3;
  }
@@ -645,7 +668,12 @@ body {
   }
   
   .grid-container-destination > picture {
+    max-width: 100%;
     justify-self: center;
+  }
+
+  .tab-list {
+    --gap: 2rem;
   }
 
   .destination-meta {
