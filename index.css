@@ -20,7 +20,7 @@
   --ff-sans-normal: "Barlow", sans-serif;
 }
 
-@media (min-width: 35em) {
+@media (min-width: 38.75em) {
   :root {
       --fs-700: 5rem;
       --fs-600: 2.5rem;
@@ -30,7 +30,7 @@
   }
 }
 
-@media (min-width: 45em) {
+@media (min-width: 50em) {
   :root {
       --fs-700: 6.25rem;
       --fs-600: 3.5rem;
@@ -242,15 +242,15 @@ select {
 }
 
 .large-button:hover::after,
-.large-button:focus::after {
+.large-butta > spanon:focus::after {
   opacity: 1;
   /* Using scale for transform reduces the amount of browser repainting
      which can happen if we change width|height properties here 
      e.g. width: 150%; height: 150%;*/
   transform: scale(1.5);
 }
-/* Primary header */
 
+/* Primary header */
 .logo {
   margin: 1.5rem clamp(1.5rem, 5vw, 3.5rem);
 }
@@ -273,7 +273,7 @@ select {
   text-decoration: none;
 }
 
-.primary-navigation a > span {
+.primary-navigation .numbers {
   font-weight: 700;
   margin-inline-end: .5em;
 }
@@ -288,7 +288,7 @@ select {
 /* Targeting primary navigation only on Firefox browsers
 to prevent text from blending into unblurred background*/
 @supports (-moz-appearance:none) {
-  @media (max-width: 35em) {
+  @media (max-width: 38.75em) {
     .primary-navigation {
       background: hsl(var(--clr-dark) / 0.9);
     }
@@ -299,7 +299,7 @@ to prevent text from blending into unblurred background*/
   display: none;
 }
 
-@media (max-width: 35em) {
+@media (max-width: 38.75em) {
   .primary-navigation {
     --underline-gap: 1rem;
     position: fixed;
@@ -351,27 +351,17 @@ to prevent text from blending into unblurred background*/
   }
 }
 
-@media (min-width: 35em) {
+@media (min-width: 38.76em) {
   .primary-navigation {
     padding-inline: clamp(3rem, 7vw, 7rem);
   }
-}
 
-@media (min-width: 35em) and (max-width: 44.999em) {
-  .primary-navigation a > span {
+  .primary-navigation .numbers {
     display: none;
   }
-
-  .grid-container-home span#space {
-    font-size: min(20vw, 9.375rem);
-  }
-
-  .large-button {
-    padding-inline: 1.5em;
-  }
 }
 
-@media (min-width: 45em) {
+@media (min-width: 50em) {
   .primary-header::after {
     content: '';
     display: block;
@@ -389,6 +379,10 @@ to prevent text from blending into unblurred background*/
 
   .primary-navigation {
     margin-block: 2rem;
+  }
+
+  .primary-navigation a > span {
+    display: inline;
   }
 }
 
@@ -483,65 +477,68 @@ body {
   background-image: url(./assets/home/background-home-mobile.jpg);
 }
 
-@media (min-width: 35em) {
+@media (min-width: 38.75em) {
   .home {
     background-position: center center;
     background-image: url(./assets/home/background-home-tablet.jpg); 
   }
 }
 
-@media (min-width: 45em) {
+@media (min-width: 50em) {
   .home {
     background-image: url(./assets/home/background-home-desktop.jpg); 
   }
 }
 
+/* Destination */
 .destination {
   background-image: url(./assets/destination/background-destination-mobile.jpg);
 }
 
-@media (min-width: 35em) {
+@media (min-width: 38.75em) {
   .destination {
     background-position: center center;
     background-image: url(./assets/destination/background-destination-tablet.jpg); 
   }
 }
 
-@media (min-width: 45em) {
+@media (min-width: 50em) {
   .destination {
     background-image: url(./assets/destination/background-destination-desktop.jpg); 
   }
 }
 
+/* Crew */
 .crew {
   background-image: url(./assets/crew/background-crew-mobile.jpg);
 }
 
-@media (min-width: 35em) {
+@media (min-width: 38.75em) {
   .crew {
     background-position: center center;
     background-image: url(./assets/crew/background-crew-tablet.jpg); 
   }
 }
 
-@media (min-width: 45em) {
+@media (min-width: 50em) {
   .crew {
     background-image: url(./assets/crew/background-crew-desktop.jpg); 
   }
 }
 
+/* Technology */
 .technology {
   background-image: url(./assets/technology/background-technology-mobile.jpg);
 }
 
-@media (min-width: 35em) {
+@media (min-width: 38.75em) {
   .technology {
     background-position: center center;
     background-image: url(./assets/technology/background-technology-tablet.jpg); 
   }
 }
 
-@media (min-width: 45em) {
+@media (min-width: 50em) {
   .technology {
     background-image: url(./assets/technology/background-technology-desktop.jpg);
   }
@@ -571,7 +568,7 @@ body {
   grid-area: title;
 }
 
-@media (max-width: 45em) {
+@media (max-width: 50em) {
   .grid-container-home span#space {
     margin-block: 1rem;
   }
@@ -681,7 +678,15 @@ body {
   --flow-space: 1rem;
 }
 
-@media (min-width: 35em) {
+@media (min-width: 38.76em) {
+  .grid-container-home span#space {
+    font-size: min(20vw, 8rem);
+  }
+
+  .large-button {
+    padding-inline: 1.5em;
+  }
+
   .numbered-title {
     place-self: start;
     margin-block-start: 2rem;
@@ -723,10 +728,9 @@ body {
   }
 }
 
-@media (min-width: 45em) {
+@media (min-width: 50em) {
   .grid-container {
     text-align: left;
-    /* column-gap: var(--container-gap, 2rem); */
     grid-template-columns: minmax(8.25rem, 1fr) repeat(2, minmax(0, 80rem)) minmax(8.25rem, 1fr);
     padding-inline: 0;
   }
@@ -742,6 +746,10 @@ body {
 
   .grid-container-home span#space {
     margin-block: 1.5rem;
+  }
+
+  .grid-container-home .large-button {
+    margin-inline-start: 3.5rem;
   }
  
   .grid-container p.main-text-content {
