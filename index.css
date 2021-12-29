@@ -278,10 +278,9 @@ select {
   margin-inline-end: .5em;
 }
 
-@supports (backdrop-filter: blur(1rem)) and (-webkit-backdrop-filter: blur(1rem)) {
+@supports (backdrop-filter: blur(1rem)) {
   .primary-navigation {
     background: hsl(var(--clr-light) / 0.05);
-    -webkit-backdrop-filter: blur(1.5rem);
     backdrop-filter: blur(1.5rem);
   }
 }
