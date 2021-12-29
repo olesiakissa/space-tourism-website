@@ -6,7 +6,7 @@ This is a solution to the [Space tourism website challenge on Frontend Mentor](h
 - [Overview](#overview)
   - [The challenge](#the-challenge)
   - [Screenshots](#screenshots)
-  - [Links](#links)
+  - [Link](#link)
 - [My process](#my-process)
   - [Built with](#built-with)
   - [What I learned](#what-i-learned)
@@ -27,16 +27,16 @@ Users should be able to:
 
 ### Screenshots
 ##### MOBILE
-<img src="./previews/mobile-preview-index.png" width="200" height="400"> <img src="./previews/mobile-preview-menu-open.png" width="200" height="400"> <img src="./previews/mobile-preview-crew" width="200" height="400"> 
+<img src="./previews/mobile-preview-index.png" width="200" height="400"> <img src="./previews/mobile-preview-menu-open.png" width="200" height="400"> <img src="./previews/mobile-preview-crew.png" width="200" height="400"> 
 
 ##### TABLET
-<img src="./previews/tablet-preview-crew.png" width="300" height="800"> <img src="./previews/tablet-preview-destination.png" width="300" height="800"> 
+<img src="./previews/tablet-preview-crew.png" width="300" height="420"> <img src="./previews/tablet-preview-destination.png" width="300" height="420"> 
 
 ##### DESKTOP
 <img src="./previews/desktop-preview-technology.png">
 
 
-### Links
+### Link
 
 [Live demo](https://fmok-space-tourism-website.netlify.app/)
 
@@ -51,7 +51,8 @@ Users should be able to:
 ### What I learned
 
 :arrow_right: In this project I learned a lot of things. I had an opportunity to learn new aria-attributes, how to build 'Skip to content' button, `@supports` feature.
-:arrow_right: The hardest part was to combine all of the utility classes and not to break the things. The positioning was also challenging. 
+
+:arrow_right: The hardest part was to combine all of the utility classes and to not break the things. The positioning was also challenging. 
 
 ### Continued development
 
@@ -60,9 +61,9 @@ Users should be able to:
   - fixing numbers right next to the text in primary navigation tabs (currently it is located above text)
   - `picture` elements that contain article images can be used for 'art direction' problem if the design specs change and we have to update images based on the orientation of the device
 
-  ### Useful resources 
+### Useful resources 
   - [Modern CSS Reset](https://piccalil.li/blog/a-modern-css-reset/)
-  - [white-space:nowrap](https://stackoverflow.com/questions/15411260/nbsp-vs-white-spacenowrap/65334876#65334876)
+  - [white-space: nowrap](https://stackoverflow.com/questions/15411260/nbsp-vs-white-spacenowrap/65334876#65334876)
   - [Utility classes](https://blog.logrocket.com/css-utility-classes-library-extendable-styles/)
   - [Stacking context](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context)
   - [CSS Feature @supports](https://developer.mozilla.org/en-US/docs/Web/CSS/@supports)
@@ -73,6 +74,6 @@ Users should be able to:
   - [Responsive images](https://webdesign.tutsplus.com/tutorials/quick-tip-how-to-use-html5-picture-for-responsive-images--cms-21015)
 
 
-  ## Author
+## Author
 
 Frontend Mentor Profile - [@olesiakissa](https://www.frontendmentor.io/profile/olesiakissa)
