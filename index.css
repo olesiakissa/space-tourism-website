@@ -431,6 +431,13 @@ to prevent text from blending into unblurred background*/
   background-color: hsl(var(--clr-white) / 1);
 }
 
+@media (max-width: 38.75em) {
+  .dot-indicators {
+    width: 85%;
+    justify-content: center;
+  }
+}
+
 .number-indicators {
   width: 2.5rem;
   aspect-ratio: 1;
@@ -629,7 +636,15 @@ body {
 .grid-container-crew > picture {
   grid-area: image;
   max-width: 60%;
-  border-bottom: 1px solid hsl(231 15% 26%);
+}
+
+.grid-container-crew > picture::after {
+  content: '';
+  background-color: hsl(231 15% 26%);
+  position: absolute;
+  left: calc( (100% - 85%) / 2);
+  width: 85%;
+  height: 1px;
 }
 
 .grid-container-crew > .dot-indicators {
@@ -707,8 +722,8 @@ body {
     padding-block-end: 0;
   }
 
-  .grid-container-crew > picture {
-    border-bottom: none;
+  .grid-container-crew > picture::after {
+    content: none;
   }
 
   .grid-container-technology > picture,
