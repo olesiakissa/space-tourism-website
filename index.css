@@ -30,7 +30,7 @@
   }
 }
 
-@media (min-width: 50em) {
+@media (min-width: 55em) {
   :root {
       --fs-700: 6.25rem;
       --fs-600: 3.5rem;
@@ -361,7 +361,7 @@ to prevent text from blending into unblurred background*/
   }
 }
 
-@media (min-width: 50em) {
+@media (min-width: 55em) {
   .primary-header::after {
     content: '';
     display: block;
@@ -491,7 +491,7 @@ body {
   }
 }
 
-@media (min-width: 50em) {
+@media (min-width: 55em) {
   .home {
     background-image: url(./assets/home/background-home-desktop.jpg); 
   }
@@ -509,7 +509,7 @@ body {
   }
 }
 
-@media (min-width: 50em) {
+@media (min-width: 55em) {
   .destination {
     background-image: url(./assets/destination/background-destination-desktop.jpg); 
   }
@@ -527,7 +527,7 @@ body {
   }
 }
 
-@media (min-width: 50em) {
+@media (min-width: 55em) {
   .crew {
     background-image: url(./assets/crew/background-crew-desktop.jpg); 
   }
@@ -545,7 +545,7 @@ body {
   }
 }
 
-@media (min-width: 50em) {
+@media (min-width: 55em) {
   .technology {
     background-image: url(./assets/technology/background-technology-desktop.jpg);
   }
@@ -575,7 +575,7 @@ body {
   grid-area: title;
 }
 
-@media (max-width: 50em) {
+@media (max-width: 55em) {
   .grid-container-home span#space {
     margin-block: 1rem;
   }
@@ -743,7 +743,7 @@ body {
   }
 }
 
-@media (min-width: 50em) {
+@media (min-width: 55em) {
   .grid-container {
     text-align: left;
     grid-template-columns: minmax(8.25rem, 1fr) repeat(2, minmax(0, 80rem)) minmax(8.25rem, 1fr);
