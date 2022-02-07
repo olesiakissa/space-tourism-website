@@ -46,7 +46,7 @@ Users should be able to:
 - Mobile-first workflow
 - CSS custom properties and utility classes
 - CSS Grid, Flexbox
-- VanillaJS
+- Javascript
 
 ### What I learned
 
